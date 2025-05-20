@@ -1,0 +1,158 @@
+/* Basic Reset */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f4f4;
+  color: #222;
+  transition: background 0.5s, color 0.5s;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header, main, footer {
+  max-width: 900px;
+  margin: 1rem auto;
+  background: white;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  width: 90%;
+}
+
+/* Flexbox layout for main content sections */
+main {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+/* Each section inside main gets flex-basis for layout */
+main section {
+  flex: 1 1 300px;
+  min-width: 280px;
+  background: #fff;
+  border-radius: 8px;
+  padding: 1rem 1.5rem;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+}
+
+/* Center and style headers */
+h1, h2 {
+  text-align: center;
+  color: #007acc;
+  margin-top: 0;
+}
+
+/* Button styles remain the same */
+#animate-btn {
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  background: #007acc;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+  display: block;
+  margin: 1rem auto;
+}
+
+#animate-btn:hover {
+  background: #005f99;
+  transform: scale(1.08);
+}
+
+/* Bounce animation */
+@keyframes bounce {
+  0%   { transform: translateY(0); }
+  30%  { transform: translateY(-30px); }
+  50%  { transform: translateY(0); }
+  70%  { transform: translateY(-15px); }
+  100% { transform: translateY(0); }
+}
+
+.bounce {
+  animation: bounce 0.7s;
+}
+
+/* Image styles */
+#animated-img {
+  display: block;
+  margin: 1rem auto;
+  border-radius: 15px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.13);
+  transition: box-shadow 0.4s;
+  max-width: 100%;
+  height: auto;
+}
+
+#animated-img.spin {
+  animation: spin 1s linear;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg);}
+  to   { transform: rotate(360deg);}
+}
+
+/* Dark Theme */
+body.dark {
+  background: #222;
+  color: #f4f4f4;
+}
+
+body.dark header, body.dark main, body.dark footer {
+  background: #333;
+  color: #f4f4f4;
+}
+
+body.dark #animate-btn {
+  background: #444;
+  color: #f4f4f4;
+}
+
+body.dark #animate-btn:hover {
+  background: #222;
+}
+
+/* Responsive Media Queries */
+
+/* Tablets and below */
+@media (max-width: 768px) {
+  main {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  main section {
+    flex-basis: 100%;
+    max-width: 100%;
+  }
+
+  header, main, footer {
+    width: 95%;
+    margin: 1rem auto;
+    padding: 1rem;
+  }
+}
+
+/* Mobile phones */
+@media (max-width: 480px) {
+  #animate-btn {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1rem;
+  }
+
+  #animated-img {
+    width: 100%;
+    height: auto;
+  }
+}
